@@ -17,7 +17,7 @@ document.body.onload = function() {
 
 	// Create a config object
 	const config = new Config({ useUrlParams: true });
-	config.setFlagEnabled(Flags.UseMic, true);
+	config.setFlagEnabled(Flags.MatchViewportResolution, true);
 	config.setFlagEnabled(Flags.HoveringMouseMode, true);
 
 	// Create a Native DOM delegate instance that implements the Delegate interface class
@@ -31,4 +31,13 @@ document.body.onload = function() {
 	document.body.appendChild(application.rootElement);
 	
 	window.pixelStreaming = stream;
+
+	stream.addResponseEventListener("handle_responses", (  response :string)=>{
+		console.log ("Message Received");
+		console.log (response);
+		config.setFlagEnabled(Flags.HoveringMouseMode, false);
+	});
+
+
 }
+
