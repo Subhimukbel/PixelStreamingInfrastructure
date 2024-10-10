@@ -17,7 +17,7 @@ document.body.onload = function() {
 
 	// Create a config object
 	const config = new Config({ useUrlParams: true });
-	//config.setFlagEnabled(Flags.MatchViewportResolution, true);
+	config.setFlagEnabled(Flags.MatchViewportResolution, false);
 	config.setFlagEnabled(Flags.HoveringMouseMode, true);
 
 	// Create a Native DOM delegate instance that implements the Delegate interface class
